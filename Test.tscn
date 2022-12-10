@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Background.png" type="Texture" id=2]
+[ext_resource path="res://Building Wall.png" type="Texture" id=3]
+[ext_resource path="res://Lift.tscn" type="PackedScene" id=4]
+
+[node name="Test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 236, 236 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 512, 301 )
+scale = Vector2( 1.77083, 1.55729 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 496, 340 )
+scale = Vector2( 1.27415, 1.22396 )
+texture = ExtResource( 3 )
+
+[node name="Lift" parent="." instance=ExtResource( 4 )]
+position = Vector2( 44, 0 )
