@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WindowForGameJame.png-554fd51a11ba72ec677cca1ae266a206.stex"
+path="res://.import/Character1ForGameJam.png-35e8b85ef7cabcf638843044092bc128.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WindowForGameJame.png"
-dest_files=[ "res://.import/WindowForGameJame.png-554fd51a11ba72ec677cca1ae266a206.stex" ]
+source_file="res://Visuals/Character1ForGameJam.png"
+dest_files=[ "res://.import/Character1ForGameJam.png-35e8b85ef7cabcf638843044092bc128.stex" ]
 
 [params]
 

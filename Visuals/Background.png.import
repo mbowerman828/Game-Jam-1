@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WindowForGameJame2.png-90caaa351c1a15f9174614dd272766e7.stex"
+path="res://.import/Background.png-4eee7a9a4d0fa64ca43855ca17a242b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WindowForGameJame2.png"
-dest_files=[ "res://.import/WindowForGameJame2.png-90caaa351c1a15f9174614dd272766e7.stex" ]
+source_file="res://Visuals/Background.png"
+dest_files=[ "res://.import/Background.png-4eee7a9a4d0fa64ca43855ca17a242b7.stex" ]
 
 [params]
 

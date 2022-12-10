@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Building Wall.png-40bc959a9242397e9c03a6bc539f7b77.stex"
+path="res://.import/Character1ForGameJamBack.png-2db505713a8a2d95f6172f67b2beab69.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Building Wall.png"
-dest_files=[ "res://.import/Building Wall.png-40bc959a9242397e9c03a6bc539f7b77.stex" ]
+source_file="res://Visuals/Character1ForGameJamBack.png"
+dest_files=[ "res://.import/Character1ForGameJamBack.png-2db505713a8a2d95f6172f67b2beab69.stex" ]
 
 [params]
 

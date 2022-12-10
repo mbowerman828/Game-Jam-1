@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WindowForGameJame3.png-4c88c8f929131ca5ee1fc940807da620.stex"
+path="res://.import/Building Wall.png-bd4f18f28fc57d88901ff112aa494cab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WindowForGameJame3.png"
-dest_files=[ "res://.import/WindowForGameJame3.png-4c88c8f929131ca5ee1fc940807da620.stex" ]
+source_file="res://Visuals/Building Wall.png"
+dest_files=[ "res://.import/Building Wall.png-bd4f18f28fc57d88901ff112aa494cab.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lift.png-8662fd3339c0026ea5741f0cc84c7ce2.stex"
+path="res://.import/WindowForGameJame3.png-1e58a68702b4fadce6ca9b374286de60.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Lift.png"
-dest_files=[ "res://.import/Lift.png-8662fd3339c0026ea5741f0cc84c7ce2.stex" ]
+source_file="res://Visuals/WindowForGameJame3.png"
+dest_files=[ "res://.import/WindowForGameJame3.png-1e58a68702b4fadce6ca9b374286de60.stex" ]
 
 [params]
 
