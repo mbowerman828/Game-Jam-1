@@ -20,30 +20,32 @@ onready var LiftSound = $LiftSound
 func get_input():
 	velocity = Vector2.ZERO
 	
-	
-	if Input.is_action_pressed("Move_Lift_Right"):
-		if staticHorizontalPos < maxHorizontalPosition:
-			velocity.x += speed
-			staticHorizontalPos += speed
+	if Input.is_action_just_pressed("Wipe"):
+		pass
+	else:
+		if Input.is_action_pressed("Move_Lift_Right"):
+			if staticHorizontalPos < maxHorizontalPosition:
+				velocity.x += speed
+				staticHorizontalPos += speed
+				
+				
 			
+		if Input.is_action_pressed("Move_Lift_Left"):
+			if staticHorizontalPos > minHorizontalPosition:
+				velocity.x -= speed
+				staticHorizontalPos -= speed
 			
-		
-	if Input.is_action_pressed("Move_Lift_Left"):
-		if staticHorizontalPos > minHorizontalPosition:
-			velocity.x -= speed
-			staticHorizontalPos -= speed
-		
-	if Input.is_action_pressed("Move_Lift_Down"):
-		if staticVerticalPos < maxVerticalPosition:
-			velocity.y += speed
-			staticVerticalPos += speed
-		
-	if Input.is_action_pressed("Move_Lift_Up"):
-		if staticVerticalPos > minVerticalPosition:
-			velocity.y -= speed
-			staticVerticalPos -= speed
+		if Input.is_action_pressed("Move_Lift_Down"):
+			if staticVerticalPos < maxVerticalPosition:
+				velocity.y += speed
+				staticVerticalPos += speed
+			
+		if Input.is_action_pressed("Move_Lift_Up"):
+			if staticVerticalPos > minVerticalPosition:
+				velocity.y -= speed
+				staticVerticalPos -= speed
 
-	#velocity = velocity.normalized() * speed
+		#velocity = velocity.normalized() * speed
 	
 
 func _physics_process(delta):
