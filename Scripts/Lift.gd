@@ -15,6 +15,7 @@ var maxVerticalPosition : float = 11000
 
 var minVerticalPosition : float = -20000
 
+onready var LiftSound = $LiftSound
 
 func get_input():
 	velocity = Vector2.ZERO
@@ -24,6 +25,7 @@ func get_input():
 		if staticHorizontalPos < maxHorizontalPosition:
 			velocity.x += speed
 			staticHorizontalPos += speed
+			
 			
 		
 	if Input.is_action_pressed("Move_Lift_Left"):
@@ -47,4 +49,4 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
-
+	

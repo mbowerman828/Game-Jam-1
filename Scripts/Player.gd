@@ -62,7 +62,6 @@ func _getInput():
 	# Add player specific left-right movement to allow player to move relative to the lift
 
 	if Input.is_action_pressed("Move_Character_Right"):
-		sprite.flip_h = true
 		if relativePos < maxRelativePos:
 			velocity.x += speed
 			relativePos += speed
@@ -70,17 +69,20 @@ func _getInput():
 
 
 	if Input.is_action_pressed("Move_Character_Left"):
-		sprite.flip_h = false
 		if relativePos > (maxRelativePos * -1):
 			velocity.x -= speed
 			relativePos -= speed
-			print("RelativePos:", relativePos)
+
 
 
 func _physics_process(delta):
 	_getInput()
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
-		
+	if velocity.x > 0:
+			$AnimatedSprite.play("WalkingRight")
+	if velocity.x < 0:
+			$AnimatedSprite.play("WalkingLeft")
+	if velocity.x == 0:
+			$AnimatedSprite.play("Idle")
 	#gravity
 	#velocity.y += gravityForce * delta
