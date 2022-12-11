@@ -8,7 +8,7 @@
 [node name="Test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 236, 236 )
+position = Vector2( 504, 371 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -22,9 +22,9 @@ texture = ExtResource( 4 )
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 496, 340 )
+position = Vector2( 517, 295 )
 scale = Vector2( 1.27415, 1.22396 )
 texture = ExtResource( 3 )
 
 [node name="Lift" parent="." instance=ExtResource( 2 )]
-position = Vector2( 44, 0 )
+position = Vector2( 289, -227 )

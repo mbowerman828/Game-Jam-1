@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
-var speed = 200  
+var speed = 200
 var velocity = Vector2.ZERO
+
+
 
 func get_input():
 	velocity = Vector2.ZERO
@@ -13,9 +15,15 @@ func get_input():
 		velocity.y += 1
 	if Input.is_action_pressed("Move_Lift_Up"):
 		velocity.y -= 1
-		print("Up Works Dumbass", velocity.y)
+
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+
+	#set max horizontal movement of the lift
+	if position.x < -55:
+		position.x = -55
+	if position.x > 623:
+		position.x = 623
