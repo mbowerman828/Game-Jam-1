@@ -10,9 +10,6 @@
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 504, 371 )
 
-[node name="Lift" parent="." instance=ExtResource( 2 )]
-position = Vector2( 289, -227 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -28,3 +25,6 @@ texture = ExtResource( 4 )
 position = Vector2( 517, 295 )
 scale = Vector2( 1.27415, 1.22396 )
 texture = ExtResource( 3 )
+
+[node name="Lift" parent="." instance=ExtResource( 2 )]
+position = Vector2( 289, -227 )

@@ -10,6 +10,18 @@ var relativePos : float = 0
 
 var maxRelativePos : float = 5000
 
+var staticHorizontalPos: float = 0
+
+var staticVerticalPos : float = 0
+
+var maxHorizontalPosition : float= 22000
+
+var minHorizontalPosition : float = -20000
+
+var maxVerticalPosition : float = 11000
+
+var minVerticalPosition : float = -20000
+
 var gravityForce : int = 800
 
 var velocity : Vector2 = Vector2()
@@ -24,15 +36,27 @@ func _getInput():
 	#Duplicate lift movement to player so they move together
 
 	if Input.is_action_pressed("Move_Lift_Right"):
-		velocity.x += speed
+		if staticHorizontalPos < maxHorizontalPosition:
+			velocity.x += speed
+			staticHorizontalPos += speed
+		
 	if Input.is_action_pressed("Move_Lift_Left"):
-		velocity.x -= speed
+		if staticHorizontalPos> minHorizontalPosition:
+			velocity.x -= speed
+			staticHorizontalPos -= speed
+		
+		
 	if Input.is_action_pressed("Move_Lift_Down"):
-		velocity.y += speed
+		if staticVerticalPos < maxVerticalPosition:
+			velocity.y += speed
+			staticVerticalPos += speed
+		
 	if Input.is_action_pressed("Move_Lift_Up"):
-		velocity.y -= speed
+		if staticVerticalPos > minVerticalPosition:
+			velocity.y -= speed
+			staticVerticalPos -= speed
 
-	velocity = velocity.normalized() * speed
+	#velocity = velocity.normalized() * speed
 
 
 	# Add player specific left-right movement to allow player to move relative to the lift
