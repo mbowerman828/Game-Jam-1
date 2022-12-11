@@ -79,6 +79,11 @@ func _getInput():
 		if Input.is_action_just_released("Move_Character_Left"):
 			$AnimatedSprite.play("Idle")
 		if Input.is_action_just_released("Move_Character_Right"):
+			if $AnimatedSprite.play("Wiping") != true:
+				$AnimatedSprite.play("Idle")
+
+
+		if Input.is_action_just_released("Wipe"):
 			$AnimatedSprite.play("Idle")
 
 
@@ -86,7 +91,9 @@ func do_clean_attempt():
 	var overlappingArray = $WipeArea.get_overlapping_areas()
 	if overlappingArray.size() > 0:
 		overlappingArray.front().set_to_clean()
+		$AnimatedSprite.play("Wiping")
 	else:
+		$AnimatedSprite.play("Idle")
 		print("Add failed to clean animation maybe")
 
 
