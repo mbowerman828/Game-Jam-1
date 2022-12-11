@@ -28,6 +28,9 @@ var velocity : Vector2 = Vector2()
 
 onready var sprite : Sprite = get_node("Sprite")
 
+func _ready():
+	$AnimatedSprite.play("Idle")
+
 func _getInput():
 
 	velocity = Vector2.ZERO
@@ -79,12 +82,9 @@ func _getInput():
 		if Input.is_action_just_released("Move_Character_Left"):
 			$AnimatedSprite.play("Idle")
 		if Input.is_action_just_released("Move_Character_Right"):
-			if $AnimatedSprite.play("Wiping") != true:
 				$AnimatedSprite.play("Idle")
 
 
-		if Input.is_action_just_released("Wipe"):
-			$AnimatedSprite.play("Idle")
 
 
 func do_clean_attempt():
@@ -93,7 +93,6 @@ func do_clean_attempt():
 		overlappingArray.front().set_to_clean()
 		$AnimatedSprite.play("Wiping")
 	else:
-		$AnimatedSprite.play("Idle")
 		print("Add failed to clean animation maybe")
 
 
@@ -101,3 +100,8 @@ func _physics_process(delta):
 	_getInput()
 	velocity = move_and_slide(velocity, Vector2.UP)
 
+
+
+
+func _on_AnimatedSprite_animation_finished():
+	$AnimatedSprite.play("Idle")
