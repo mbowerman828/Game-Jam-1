@@ -26,7 +26,6 @@ var minVerticalPosition : float = -20000
 var velocity : Vector2 = Vector2()
 
 
-onready var sprite : Sprite = get_node("Sprite")
 
 func _ready():
 	$AnimatedSprite.play("Idle")
