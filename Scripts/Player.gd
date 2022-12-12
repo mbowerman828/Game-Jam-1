@@ -29,6 +29,8 @@ var velocity : Vector2 = Vector2()
 
 func _ready():
 	$AnimatedSprite.play("Idle")
+	$Timer.start(.75)
+
 
 func _getInput():
 
@@ -66,6 +68,9 @@ func _getInput():
 		# Add player specific left-right movement to allow player to move relative to the lift
 
 		if Input.is_action_pressed("Move_Character_Right"):
+			if $Timer.time_left <= 0:
+				$Timer.start(.5)
+				$Footsteps.play()
 			$AnimatedSprite.play("WalkingRight")
 			if relativePos < maxRelativePos:
 				velocity.x += speed
@@ -73,6 +78,9 @@ func _getInput():
 
 
 		if Input.is_action_pressed("Move_Character_Left"):
+			if $Timer.time_left <= 0:
+				$Timer.start(.5)
+				$Footsteps.play()
 			$AnimatedSprite.play("WalkingLeft")
 			if relativePos > (maxRelativePos * -1):
 				velocity.x -= speed
