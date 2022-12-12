@@ -14,6 +14,10 @@ config/name="Game Jam"
 run/main_scene="res://Scenes/Start Menu.tscn"
 config/icon="res://Visuals/icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -66,7 +70,3 @@ Wipe={
 
 common/enable_pause_aware_picking=true
 2d/default_gravity_vector=Vector2( 0, 0 )
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
