@@ -98,7 +98,7 @@ animations = [ {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
 "loop": false,
 "name": "Wiping",
-"speed": 10.0
+"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=19]

@@ -42,6 +42,8 @@ func set_to_clean():
 		$DirtyImage.self_modulate.a8 = ((cleanLevel/3) * 70) + 185
 		print("Add function to show cleaning action")
 
+func getDirtyness():
+	return cleanLevel
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

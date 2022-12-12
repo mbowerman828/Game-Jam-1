@@ -4,9 +4,10 @@ export(PackedScene) var floorObject
 
 var floorSpeed
 
+var score 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-		$WipermanLoop.play() 
+		$Startup.play()
 		floorSpeed = 15
 		summonFloor(517,528)
 		summonFloor(517,384)
@@ -14,7 +15,9 @@ func _ready():
 		summonFloor(517,96)
 		summonFloor(517,-48)
 		$FloorCreationTimer.start()
+		$"Score Updater".start()
 		
+		var score = 0
 
 func _on_FloorCreationTimer_timeout():
 	summonFloor(517,-48)
@@ -38,3 +41,16 @@ func summonFloor(startingX: int, startingY: int):
 
 
 
+
+
+func _on_Startup_finished():
+	$WipermanLoop.play()
+
+
+func _on_WipermanLoop_finished():
+	$WipermanLoop.play()
+
+
+func _on_Score_Updater_timeout():
+	score = $Player.getAcumulatedCleanliness() 
+	$HUD.updateScore(score)

@@ -27,12 +27,15 @@ var currentlyCleaning
 
 var velocity : Vector2 = Vector2()
 
+var recievedWindowDirtyness
 
+var accumulatedCleanliness
 
 func _ready():
 	$AnimatedSprite.play("Idle")
 	z_index = 1000
 	currentlyCleaning = false
+	accumulatedCleanliness = 0 
 
 func _getInput():
 
@@ -95,6 +98,8 @@ func _getInput():
 func do_clean_attempt():
 	var overlappingArray = $WipeArea.get_overlapping_areas()
 	if overlappingArray.size() > 0:
+		if overlappingArray.front().getDirtyness() == 1:
+			accumulatedCleanliness += 1
 		overlappingArray.front().set_to_clean()
 		$AnimatedSprite.play("Wiping")
 	else:
@@ -104,6 +109,9 @@ func do_clean_attempt():
 func _physics_process(delta):
 	_getInput()
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+func getAcumulatedCleanliness():
+	return accumulatedCleanliness
 
 
 
