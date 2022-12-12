@@ -4,7 +4,8 @@ extends KinematicBody2D
 
 var score : int = 0
 
-var speed : int = 200
+export var liftSpeed : int = 200
+export var speed : int = 200
 
 var relativePos : float = 0
 
@@ -22,6 +23,7 @@ var maxVerticalPosition : float = 11000
 
 var minVerticalPosition : float = -20000
 
+var currentlyCleaning
 
 var velocity : Vector2 = Vector2()
 
@@ -29,67 +31,63 @@ var velocity : Vector2 = Vector2()
 
 func _ready():
 	$AnimatedSprite.play("Idle")
-	$Timer.start(.75)
-
+	z_index = 1000
+	currentlyCleaning = false
 
 func _getInput():
 
 	velocity = Vector2.ZERO
 
 	if Input.is_action_just_pressed("Wipe"):
+		currentlyCleaning = true
 		do_clean_attempt()
+		
 	else:
 		#Duplicate lift movement to player so they move together
 
 		if Input.is_action_pressed("Move_Lift_Right"):
 			if staticHorizontalPos < maxHorizontalPosition:
-				velocity.x += speed
-				staticHorizontalPos += speed
+				velocity.x += liftSpeed
+				staticHorizontalPos += liftSpeed
 			
 		if Input.is_action_pressed("Move_Lift_Left"):
 			if staticHorizontalPos> minHorizontalPosition:
-				velocity.x -= speed
-				staticHorizontalPos -= speed
+				velocity.x -= liftSpeed
+				staticHorizontalPos -= liftSpeed
 			
 			
 		if Input.is_action_pressed("Move_Lift_Down"):
 			if staticVerticalPos < maxVerticalPosition:
-				velocity.y += speed
-				staticVerticalPos += speed
+				velocity.y += liftSpeed
+				staticVerticalPos += liftSpeed
 			
 		if Input.is_action_pressed("Move_Lift_Up"):
 			if staticVerticalPos > minVerticalPosition:
-				velocity.y -= speed
-				staticVerticalPos -= speed
+				velocity.y -= liftSpeed
+				staticVerticalPos -= liftSpeed
 
-		#velocity = velocity.normalized() * speed
+		
 
 
 		# Add player specific left-right movement to allow player to move relative to the lift
-
-		if Input.is_action_pressed("Move_Character_Right"):
-			if $Timer.time_left <= 0:
-				$Timer.start(.5)
-				$Footsteps.play()
-			$AnimatedSprite.play("WalkingRight")
-			if relativePos < maxRelativePos:
-				velocity.x += speed
-				relativePos += speed
+		if not currentlyCleaning:
+			if Input.is_action_pressed("Move_Character_Right"):
+				$AnimatedSprite.play("WalkingRight")
+				if relativePos < maxRelativePos:
+					velocity.x += speed
+					relativePos += speed
 
 
-		if Input.is_action_pressed("Move_Character_Left"):
-			if $Timer.time_left <= 0:
-				$Timer.start(.5)
-				$Footsteps.play()
-			$AnimatedSprite.play("WalkingLeft")
-			if relativePos > (maxRelativePos * -1):
-				velocity.x -= speed
-				relativePos -= speed
-				
-		if Input.is_action_just_released("Move_Character_Left"):
-			$AnimatedSprite.play("Idle")
-		if Input.is_action_just_released("Move_Character_Right"):
+			if Input.is_action_pressed("Move_Character_Left"):
+				$AnimatedSprite.play("WalkingLeft")
+				if relativePos > (maxRelativePos * -1):
+					velocity.x -= speed
+					relativePos -= speed
+					
+			if Input.is_action_just_released("Move_Character_Left"):
 				$AnimatedSprite.play("Idle")
+			if Input.is_action_just_released("Move_Character_Right"):
+					$AnimatedSprite.play("Idle")
 
 
 
@@ -106,10 +104,11 @@ func do_clean_attempt():
 func _physics_process(delta):
 	_getInput()
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
 
 
 
 
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.play("Idle")
+	currentlyCleaning = false
+

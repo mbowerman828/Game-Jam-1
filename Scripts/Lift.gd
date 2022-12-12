@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-var speed = 200
+export var speed = 200
+
 var velocity = Vector2.ZERO
 
 var staticHorizontalPos: float = 0
@@ -15,7 +16,9 @@ var maxVerticalPosition : float = 11000
 
 var minVerticalPosition : float = -20000
 
-onready var LiftSound = $LiftSound
+
+func _ready():
+	z_index = 1001
 
 func get_input():
 	velocity = Vector2.ZERO
