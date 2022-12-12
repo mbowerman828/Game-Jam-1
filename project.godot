@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Game Jam"
-run/main_scene="res://Scenes/Test.tscn"
+run/main_scene="res://Scenes/Start Menu.tscn"
 config/icon="res://Visuals/icon.png"
 
 [gui]

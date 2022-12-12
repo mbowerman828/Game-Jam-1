@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
+[ext_resource path="res://Sounds/Footstep.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Visuals/Character Sprite Sheet.png" type="Texture" id=3]
 
@@ -125,5 +126,10 @@ collision_mask = 2
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 2, -17 )
 shape = SubResource( 19 )
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, -6 )
+scale = Vector2( 2.0625, 2 )
+stream = ExtResource( 1 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
